@@ -32,3 +32,8 @@ Route::get('/dashboard', function () {
 Route::resource('usuario',"UsuarioController")->middleware('auth');
 
 
+
+
+Route::get('/hola', function () {
+    echo "hola soy una prueba ";
+});
