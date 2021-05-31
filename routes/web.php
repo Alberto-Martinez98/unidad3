@@ -14,11 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('principal');
 });
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login')->middleware('guest');
+
+Route::post('/validar',"UsuarioController@validar");
+Route::post('/salir',"UsuarioController@salir");
+
 Route::get('/dashboard', function () {
     return view('layouts.plantilla');
-});
-Route::post('/validar',"UsuarioController@validar");
+})->middleware('auth');
 
+<<<<<<< HEAD
 Route::resource('usuario',"UsuarioController");
+=======
+
+Route::resource('usuario',"UsuarioController")->middleware('auth');
+
+>>>>>>> 57b574bc0d66f0a11b3b1f08404061157d61cdf1
