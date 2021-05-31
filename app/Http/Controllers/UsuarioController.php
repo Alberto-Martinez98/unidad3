@@ -116,28 +116,19 @@ class UsuarioController extends Controller
 
 
     public function validar(Request $request){
-         switch ($request->input('email')) {
-            case 'admin':
-                if ($request->input('password')=="admin"){
-                    return redirect('/dashboard');
-                    # code...
-                }else return redirect('/')->with('error', 'ERROR DE USUARIO');
-                break;
-            case 'cliente':
-                if ($request->input('password')=="cliente"){
-                    return redirect('/dashboard');
-                    # code...
-                }else return redirect('/')->with('error', 'ERROR DE USUARIO');
-                break;
-            default:
-                return redirect('/')->with('error', 'ERROR DE USUARIO');
-                break;
-        }
-       /*  $credenciales = request()->except('_token');
+         $credenciales = request()->except('_token');
          if(Auth::attempt($credenciales)){
             request()->session()->regenerate();
             return redirect('/usuario');
          }
-            return redirect('/')->with('error', 'ERROR DE USUARIO');*/
+            return redirect('/')->with('error', 'ERROR DE USUARIO');
+    }
+
+    public function salir(Request $request){
+        
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
     }
 }
