@@ -22,3 +22,8 @@ Route::get('/dashboard', function () {
 Route::post('/validar',"UsuarioController@validar");
 
 Route::resource('usuario',"UsuarioController");
+
+
+Route::get('/hola', function () {
+    echo "hola soy una prueva xd";
+});
