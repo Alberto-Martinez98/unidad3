@@ -25,5 +25,5 @@ Route::resource('usuario',"UsuarioController");
 
 
 Route::get('/hola', function () {
-    echo "hola soy una prueva xd";
+    echo "hola soy una prueba ";
 });
