@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/prueba', function () {
+
+	$user=Auth::user();
+	if($user->esSupervisor()){
+		echo "eres supervisor";
+	}else
+	{
+		echo "eres otro";
+	}
+
+
+
+
+    return view('principal');
+});
 
 Route::get('/', function () {
     return view('principal');
