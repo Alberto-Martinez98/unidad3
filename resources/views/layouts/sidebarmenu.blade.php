@@ -28,19 +28,7 @@
                     <span data-feather="box"></span>
                     Productos
                   </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="help-circle"></span>
-                    Pregunta
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="book-open"></span>
-                    Bitacora
-                  </a>
-                </li>          
+                </li>         
                  <li class="nav-item">
                   <a class="nav-link" href="/perfil">
                     <span data-feather="user"></span>
