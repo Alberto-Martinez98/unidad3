@@ -10,17 +10,21 @@
 
 </head>
 <body>
-    
-    @include("layouts.cabecera")
+@guest
+   	<div style="margin-left: 300px; margin-right: 300px; margin-top: 15px; margin-bottom: 20px;">
+    @yield("contenido")
+    </div>
+@else
+	@include("layouts.cabecera")
 
     @include("layouts.sidebarmenu")
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       
     @include("layouts.subcabecera")   
-
-      @yield("contenido")
-      
+   
+    @yield("contenido")
+@endguest   
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 

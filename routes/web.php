@@ -47,4 +47,4 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('usuario',"UsuarioController")->middleware('auth');
-
+Route::resource('registro',"RegistroController");
