@@ -48,4 +48,5 @@ Route::get('/dashboard', function () {
 
 Route::resource('usuario',"UsuarioController")->middleware('auth');
 Route::resource('categoria',"CategoriaController")->middleware('auth');
+Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('registro',"RegistroController");

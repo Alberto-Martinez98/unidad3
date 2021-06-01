@@ -24,7 +24,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/producto">
                     <span data-feather="box"></span>
                     Productos
                   </a>
@@ -58,7 +58,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/perfil">
                     <span data-feather="user"></span>
                     Perfil
                   </a>
@@ -102,7 +102,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/producto">
                     <span data-feather="box"></span>
                     Productos
                   </a>
