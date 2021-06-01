@@ -119,7 +119,7 @@ class UsuarioController extends Controller
          $credenciales = request()->except('_token');
          if(Auth::attempt($credenciales)){
             request()->session()->regenerate();
-            return redirect('/usuario');
+            return redirect('/dashboard');
          }
             return redirect('/')->with('error', 'ERROR DE USUARIO');
     }

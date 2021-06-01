@@ -32,7 +32,7 @@ Route::get('/prueba', function () {
 
 Route::get('/', function () {
     return view('principal');
-});
+})->middleware('guest');
 
 Route::get('/login', function () {
     return view('login');
