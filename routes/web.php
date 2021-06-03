@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-    return view('principal');
-});
-
 Route::get('/', function () {
     return view('principal');
 })->middleware('guest');
