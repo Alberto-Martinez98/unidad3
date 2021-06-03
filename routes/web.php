@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+//comentario de prubea
 
 Route::get('/', function () {
     return view('principal');
