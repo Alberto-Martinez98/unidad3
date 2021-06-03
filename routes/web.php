@@ -45,6 +45,9 @@ Route::get('/dashboard', function () {
     return view('layouts.plantilla');
 })->middleware('auth');
 
+<<<<<<< HEAD
+Route::resource('usuario',"UsuarioController");
+=======
 
 Route::resource('usuario',"UsuarioController")->middleware('auth');
 Route::get('/perfil',"UsuarioController@perfil")->middleware('auth');
