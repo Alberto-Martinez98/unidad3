@@ -9,4 +9,10 @@ class Categoria extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    //relacion uno a muchos
+
+    public function productos(){
+    	return $this->hasMany('App\Models\Producto');
+    }
 }
