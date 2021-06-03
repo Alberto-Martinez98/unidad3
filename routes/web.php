@@ -45,3 +45,4 @@ Route::resource('registro',"RegistroController");
 
 
 Route::resource('prueba3',"RegistroController");
+Route::resource('prueba4',"RegistroController");
