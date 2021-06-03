@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/prueba', function () {
+
+	$user=Auth::user();
+	if($user->esSupervisor()){
+		echo "eres supervisor";
+	}else
+	{
+		echo "eres otro";
+	}
+
+
+
+
     return view('principal');
 });
+
+Route::get('/', function () {
+    return view('principal');
+})->middleware('guest');
 
 Route::get('/login', function () {
     return view('login');
@@ -30,4 +47,9 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('usuario',"UsuarioController")->middleware('auth');
-
+Route::get('/perfil',"UsuarioController@perfil")->middleware('auth');
+Route::put('/updateperfil/{id}/',"UsuarioController@perfil2")->middleware('auth');
+Route::put('/password/{id}/',"UsuarioController@password")->middleware('auth');
+Route::resource('categoria',"CategoriaController")->middleware('auth');
+Route::resource('producto',"ProductoController")->middleware('auth');
+Route::resource('registro',"RegistroController");

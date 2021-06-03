@@ -1,7 +1,7 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
-
+<div>
 <form action="/usuario/{{$usuario->id}}" method="post" enctype="multipart/form-data">    
    @csrf
    @method('put')
@@ -78,5 +78,29 @@
   <a href="/usuario" class="btn btn-secondary">Cancelar</a>
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+</div>
+<div>
+   <form action="/password/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">    
+         @csrf
+         @method('put')
+         <div style="text-align: center;">RESTABLECER CONTRASEÑA DEL USUARIO</div>
+      <div class="mb-3">
+          <label for="" class="form-label">Nueva Contraseña:</label>
+          <input id="codigo" name="passwor2" type="password" class="form-control" tabindex="1">    
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Repetir Contraseña: </label>
+          <input id="codigo" name="password" type="password" class="form-control" tabindex="1">
 
+        @if(session('error'))
+          <div style="color:red;">
+              {{session('error')}}
+          </div>
+        <br>
+        @endif
+        <br>
+        <a href="#" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+</div>
 @endsection

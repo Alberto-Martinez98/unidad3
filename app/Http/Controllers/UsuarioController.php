@@ -119,9 +119,9 @@ class UsuarioController extends Controller
          $credenciales = request()->except('_token');
          if(Auth::attempt($credenciales)){
             request()->session()->regenerate();
-            return redirect('/usuario');
+            return redirect('/dashboard');
          }
-            return redirect('/')->with('error', 'ERROR DE USUARIO');
+           return redirect()->back()->with('error', 'ERROR DE USUARIO');
     }
 
     public function salir(Request $request){
@@ -129,6 +129,40 @@ class UsuarioController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
+    }
+
+    public function perfil(){
+        return view("perfil.perfil");
+    }
+
+    public function perfil2(Request $request, $id)
+    {
+        $usuarios = request()->except(['_token','_method']);
+      // return response()->json($usuarios);
+        if ($request -> hasFile('imagen')) {
+
+            $usuario = User::findOrFail($id);
+            Storage::delete('public/'.$usuario->imagen);
+            $usuarios['imagen']=$request->file('imagen')->store('uploads','public');
+        }
+        User::where('id','=',$id)->update($usuarios);
+        return redirect('/perfil');
+    }
+    public function password(Request $request, $id)
+    {
+        $usuario = User::find($id);
+        $contra = $usuario->password;
+        $usuarios = request()->except(['_token','_method']);
+      // return response()->json($usuarios);
+        if(Hash::check($usuarios['passwordactual'], $contra)){
+            $usuarios = request()->except(['_token','_method','passwordactual']);
+            $usuarios['password'] = Hash::make($usuarios['password']);
+
+             User::where('id','=',$id)->update($usuarios);
+            return redirect('/perfil');
+        }else   
+            return redirect()->back()->with('error','contraseña incorrecta');
+        
     }
 }

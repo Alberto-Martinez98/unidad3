@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function esSupervisor(){
+        if($this()->rol=='Supervisor'){
+            return true;
+        }
+        return false;
+    }
 }
