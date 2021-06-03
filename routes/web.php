@@ -36,7 +36,7 @@ Route::get('/login', function () {
 })->name('login')->middleware('guest');
 
 Route::get('/',"PrincipalController@index")->middleware('guest');
-Route::get('bcategoria/{id}','BuscarController@ver');
+Route::get('bcategoria/{categoria_id}','BuscarController@ver');
 
 
 Route::post('/validar',"UsuarioController@validar");
