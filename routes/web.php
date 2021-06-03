@@ -50,7 +50,8 @@ Route::get('/dashboard', function () {
 Route::resource('usuario',"UsuarioController")->middleware('auth');
 Route::get('/perfil',"UsuarioController@perfil")->middleware('auth');
 Route::put('/updateperfil/{id}/',"UsuarioController@perfil2")->middleware('auth');
-Route::put('/password/{id}/',"UsuarioController@password")->middleware('auth');
+Route::put('/password/{id}/',"UsuarioController@password")->middleware('auth');//cambia paswword
+Route::put('/updatepassword/{id}/',"UsuarioController@restablecerPassword")->middleware('auth');
 Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('registro',"RegistroController");

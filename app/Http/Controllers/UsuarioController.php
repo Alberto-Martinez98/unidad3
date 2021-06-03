@@ -165,4 +165,16 @@ class UsuarioController extends Controller
             return redirect()->back()->with('error','contraseña incorrecta');
         
     }
+    public function restablecerPassword(Request $request, $id)
+    {
+         $usuarios = request();
+         if($usuarios['password']!=$usuarios['password2']){
+            return redirect()->back()->with('error','La contraseña no esta bien confirmado');
+        }
+        $usuarios = request()->except('_token','password2','_method');
+        $usuarios['password'] = Hash::make($usuarios['password']);
+
+         User::where('id','=',$id)->update($usuarios);
+        return redirect('/perfil');
+    }
 }

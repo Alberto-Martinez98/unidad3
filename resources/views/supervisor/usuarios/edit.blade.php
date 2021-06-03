@@ -1,7 +1,7 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
-<div>
+<div style="float: left; width: 700px;">
 <form action="/usuario/{{$usuario->id}}" method="post" enctype="multipart/form-data">    
    @csrf
    @method('put')
@@ -65,7 +65,7 @@
     </select>  
   </div>
 
-<div class="mb-3">
+<div class="mb-3" >
     <label for="" class="form-label">Imagen:</label>
     <br>
      <img src="{{asset('storage').'/'.$usuario->imagen}}" width="200">
@@ -78,15 +78,16 @@
   <a href="/usuario" class="btn btn-secondary">Cancelar</a>
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+<br>
 </div>
-<div>
-   <form action="/password/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">    
+<div style="float: right; margin-right:40px;">
+   <form action="/updatepassword/{{$usuario->id}}" method="post" enctype="multipart/form-data">    
          @csrf
          @method('put')
          <div style="text-align: center;">RESTABLECER CONTRASEÑA DEL USUARIO</div>
       <div class="mb-3">
           <label for="" class="form-label">Nueva Contraseña:</label>
-          <input id="codigo" name="passwor2" type="password" class="form-control" tabindex="1">    
+          <input id="codigo" name="password2" type="password" class="form-control" tabindex="1">    
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Repetir Contraseña: </label>
