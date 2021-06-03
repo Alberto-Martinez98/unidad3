@@ -109,7 +109,7 @@ body.sticky-header header h1{
 		<nav>
 			<a href="#">Contactanos</a>
 			<a href="#">Conocenos</a>
-			<a href="#">Registrate</a>
+			<a href="registro/create">Registrate</a>
 			<a href="/login">Mi cuenta</a>
 		</nav>
 	</header>
