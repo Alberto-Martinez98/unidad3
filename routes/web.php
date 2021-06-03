@@ -30,13 +30,14 @@ Route::get('/prueba', function () {
     return view('principal');
 });
 
-Route::get('/', function () {
-    return view('principal');
-})->middleware('guest');
 
 Route::get('/login', function () {
     return view('login');
 })->name('login')->middleware('guest');
+
+Route::get('/',"PrincipalController@index")->middleware('guest');
+Route::get('bcategoria/{id}','BuscarController@ver');
+
 
 Route::post('/validar',"UsuarioController@validar");
 Route::post('/salir',"UsuarioController@salir");
