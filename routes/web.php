@@ -14,17 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/prueba', function () {
-
-	$user=Auth::user();
-	if($user->esSupervisor()){
-		echo "eres supervisor";
-	}else
-	{
-		echo "eres otro";
-	}
-
-
 
 
     return view('principal');
