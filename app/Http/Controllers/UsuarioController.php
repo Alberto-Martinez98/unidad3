@@ -15,10 +15,19 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::all();
-        return view("supervisor.usuarios.index",compact("usuarios"));
+        if ($request) {
+            $query = trim($request->get('search'));
+            $usuarios = User::where('name', 'LIKE', '%' . $query . '%')
+            ->orderBy('id', 'asc')
+            ->get();
+
+            return view('supervisor.usuarios.index', ['usuarios' => $usuarios, 'search' => 
+            $query]);
+        }
+        //$usuarios = User::all();
+        //return view("supervisor.usuarios.index",compact("usuarios"));
     }
 
     /**

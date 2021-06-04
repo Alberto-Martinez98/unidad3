@@ -49,4 +49,3 @@ Route::resource('pueba de ruta  5',"RegistroController");
 Route::resource('prueba4',"RegistroController");
 
 
-//ibiuin
