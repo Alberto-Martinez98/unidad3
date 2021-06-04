@@ -5,7 +5,7 @@
 <h6>
 @if($search)
 <div class="alert alert-primary" role="alert">
-  Los resultados para tu busqueda{{$search}} son: 
+  Los resultados para tu busqueda '{{$search}}' son: 
 </div>
 </h6>
 @endif

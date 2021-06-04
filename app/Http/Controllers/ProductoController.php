@@ -13,10 +13,17 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $productos = Producto::all();
-        return view("supervisor.producto.index",compact("productos"));
+        if($request){
+            $query = trim($request -> get('search'));
+            $productos = Producto::where('nombre', 'LIKE', '%' . $query . '%')
+            ->orderBy('id', 'asc')
+            ->get();
+            return view('supervisor.producto.index', ['productos' =>$productos, 'search' => $query]);
+        }
+        //$productos = Producto::all();
+        //return view("supervisor.producto.index",compact("productos"));
     }
 
     /**

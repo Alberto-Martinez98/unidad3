@@ -2,6 +2,12 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
+@if($search)
+<div class="alert alert-primary" role="alert">
+  Los resultados para tu busqueda '{{$search}}' son: 
+</div>
+</h6>
+@endif
 
 		<a href="producto/create" class="btn btn-primary mb-3">CREAR</a>
 
