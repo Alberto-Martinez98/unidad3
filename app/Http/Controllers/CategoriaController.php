@@ -16,11 +16,11 @@ class CategoriaController extends Controller
     public function index(Request $request)
     {
         if($request){
-            $query = trim($request->get('search'));
-            $categoria = Categoria::where('nombre', 'LIKE', '%' .$query . '%')
+            $query = trim($request -> get('search'));
+            $categorias = Categoria::where('nombre', 'LIKE', '%' . $query . '%')
             ->orderBy('id', 'asc')
             ->get();
-            return view('supervisor.categoria.index',['categorias' =>$categoria, 'search' => $query]);
+            return view('supervisor.categoria.index', ['categorias' =>$categorias, 'search' => $query]);
         }
 
        // $categorias = Categoria::all();

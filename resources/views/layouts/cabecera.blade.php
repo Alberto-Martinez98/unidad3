@@ -5,8 +5,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-       <!-- <input class="form-control form-control-dark w-100" name="search" type="search" placeholder="Buscar" aria-label="Search">
-       -->
+        <input class="form-control form-control-dark w-100" name= "search" type="search" placeholder="Buscar" aria-label="Search">
+       
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
             <form action="/salir" method="post">
