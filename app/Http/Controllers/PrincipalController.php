@@ -17,7 +17,7 @@ class PrincipalController extends Controller
         	$categorias = Categoria::where('nombre','LIKE','%'.$consulta.'%')
         	->orderBy('id','asc')
         	->get();
-        	return view('principal',compact('categorias'));
+        	return view('principal',compact('categorias','consulta'));
         }
     }
 }

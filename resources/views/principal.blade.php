@@ -42,6 +42,14 @@ header{
 	text-transform: uppercase;
 	background-color: black;
 }
+ h6{
+ 	background-color: #8fa1fc;
+ 	text-align: left;
+	font-size: 25px;
+	color: black;
+	line-height: 60px;
+	font-weight: 300px;
+}
 header nav{
 	position: absolute;
 	bottom: 0;
@@ -124,6 +132,13 @@ body.sticky-header header h1{
 			<section>
 				<form style="text-align: right; "> 
         <input class="form" name="buscador" type="search" placeholder="BUSCAR CATEGORIA" aria-label="Search">
+        <h6>
+		@if($consulta)
+		<div class="alert alert-primary" role="alert">
+		  Los resultados para tu busqueda '{{$consulta}}' son: 
+		</div>
+		@endif
+		</h6>
         </form>
 				<h2>Categorias del Mercado Alpha</h2>
 				<p>Alpha es en donde los precios de los bienes y servicios se determinan por la interacción de los oferentes y demandantes sin la intervención del gobierno o cualquier otro agente externo.</p>

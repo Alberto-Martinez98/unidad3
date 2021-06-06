@@ -3,6 +3,12 @@
 
 @section("contenido")
 
+        @if($consulta)
+        <div class="alert alert-primary" role="alert">
+          Los resultados para tu busqueda '{{$consulta}}' son: 
+        </div>
+        @endif
+
 		<a href="usuario/create" class="btn btn-primary mb-3">CREAR</a>
 
 <table id="articulos" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">

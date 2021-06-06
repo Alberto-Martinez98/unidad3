@@ -15,10 +15,16 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::all();
-        return view("supervisor.usuarios.index",compact("usuarios"));
+        if($request){
+            $consulta = trim($request->get('buscador'));
+            $usuarios = User::where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->get();
+
+        return view("supervisor.usuarios.index",compact("consulta","usuarios"));
+        }
     }
 
     /**
