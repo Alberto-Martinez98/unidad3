@@ -42,6 +42,14 @@ header{
 	text-transform: uppercase;
 	background-color: black;
 }
+ h6{
+ 	background-color: #8fa1fc;
+ 	text-align: left;
+	font-size: 25px;
+	color: black;
+	line-height: 60px;
+	font-weight: 300px;
+}
 header nav{
 	position: absolute;
 	bottom: 0;
@@ -107,7 +115,7 @@ body.sticky-header header h1{
 <body>
 	<header>
 		<div >
-			<img src="{{url('/imagenes/logo.jpg')}}" width="80" height="60" text align="left">
+			<a href="/"><img src="{{url('/imagenes/logo.jpg')}}" width="80" height="60" text align="left"></a>
 			<h1>"Mercado Alpha"</h1>  
 		</div>	
 		<nav>
@@ -121,6 +129,16 @@ body.sticky-header header h1{
 
 	<div class="wrapper" >
 			<section>
+						<form style="text-align: right; "> 
+				        <input class="form" name="buscador" type="search" placeholder="BUSCAR CATEGORIA" aria-label="Search">
+				        <h6>
+						@if($consulta)
+						<div class="alert alert-primary" role="alert">
+						  Los resultados para tu busqueda '{{$consulta}}' son: 
+						</div>
+						@endif
+						</h6>
+				        </form>
 				<h2>Productos de la Categoria "{{$nombre}}"</h2>
 				<p>Alpha es en donde los precios de los bienes y servicios se determinan por la interacción de los oferentes y demandantes sin la intervención del gobierno o cualquier otro agente externo.</p>
 				@foreach ($productos as $producto)

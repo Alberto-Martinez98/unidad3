@@ -2,6 +2,11 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
+                @if($consulta)
+                <div class="alert alert-success" role="alert">
+                  Los resultados para tu busqueda '{{$consulta}}' son: 
+                </div>
+                @endif
 
 		<a href="categoria/create" class="btn btn-primary mb-3">CREAR</a>
 

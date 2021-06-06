@@ -5,7 +5,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <form> 
+        <form class="input-group"> 
         <input class="form-control form-control-dark w-100" name="buscador" type="search" placeholder="Buscar" aria-label="Search">
         </form>
        

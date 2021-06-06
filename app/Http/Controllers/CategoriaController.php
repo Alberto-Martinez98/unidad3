@@ -13,10 +13,16 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = Categoria::all();
-        return view("supervisor.categoria.index",compact("categorias"));
+        if($request){
+            $consulta = trim($request->get('buscador'));
+            $categorias = Categoria::where('nombre','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->get();
+
+        return view("supervisor.categoria.index",compact("consulta","categorias"));
+        }
     }
 
     /**

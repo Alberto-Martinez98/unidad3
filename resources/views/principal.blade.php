@@ -116,7 +116,7 @@ body.sticky-header header h1{
 <body>
 	<header>
 		<div >
-			<img src="imagenes/logo.jpg" width="80" height="60" text align="left" >
+			<a href="/"><img src="imagenes/logo.jpg" width="80" height="60" text align="left" ></a>
 			<h1>"Mercado Alpha"</h1>  
 		</div>	
 		<nav>
