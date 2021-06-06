@@ -7,9 +7,9 @@ use App\Models\Categoria;
 
 class BuscarController extends Controller
 {
-    public function ver($categoria_id){
+    public function ver($id){
         //procesamos la cadena buscar
-        $categoria = Categoria::find($categoria_id);
+        $categoria = Categoria::find($id);
         if (is_null($categoria)){
             $productos = array();
             $nombre = "Categoria no encontrada";
@@ -17,7 +17,6 @@ class BuscarController extends Controller
             $productos = $categoria->productos;
             $nombre = $categoria->nombre;
         }
-        $cad = "";
-        return view('anonimo.producto',compact('nombre','productos','cad'));
+        return view('anonimo.producto',compact('nombre','productos'));
     }
 }
