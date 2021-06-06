@@ -104,6 +104,7 @@ body.sticky-header header h1{
 }
 	</style> 
 </head>
+
 <body>
 	<header>
 		<div >
@@ -121,6 +122,9 @@ body.sticky-header header h1{
 
 	<div class="wrapper" >
 			<section>
+				<form style="text-align: right; "> 
+        <input class="form" name="buscador" type="search" placeholder="BUSCAR CATEGORIA" aria-label="Search">
+        </form>
 				<h2>Categorias del Mercado Alpha</h2>
 				<p>Alpha es en donde los precios de los bienes y servicios se determinan por la interacción de los oferentes y demandantes sin la intervención del gobierno o cualquier otro agente externo.</p>
 
@@ -140,6 +144,7 @@ body.sticky-header header h1{
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="script.js"></script>
+
 </body>
 </html>
 
