@@ -38,6 +38,13 @@ Route::get('/login', function () {
 Route::get('/',"PrincipalController@index")->middleware('guest');
 Route::get('bcategoria/{id}','BuscarController@ver');
 
+Route::get('/cte',"CategoriaController@inicioEncargado")->middleware('auth');
+Route::get('bcte/{id}','CategoriaController@ver');
+
+Route::get('/comprar',"ComprarController@inicioEncargado")->middleware('auth');
+Route::get('comprar/{id}','ComprarController@ver');
+
+
 
 Route::post('/validar',"UsuarioController@validar");
 Route::post('/salir',"UsuarioController@salir");
