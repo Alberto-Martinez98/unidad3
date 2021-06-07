@@ -43,6 +43,10 @@ Route::resource('registro',"RegistroController");
 
 
 
+Route::resource('encargado',"EncargadoController");
+
+
+
 
 Route::resource('prueba3',"RegistroController");
 Route::resource('pueba de ruta  5',"RegistroController");
