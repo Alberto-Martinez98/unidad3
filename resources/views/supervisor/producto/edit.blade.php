@@ -19,6 +19,16 @@
     <label for="" class="form-label">Precio:</label>
     <input id="codigo" name="precio" type="text" class="form-control" value="{{$producto->precio}}">    
   </div>
+
+ <div class="form-group">
+        <label>Categoria:</label>
+        <select name="categoria_id">
+          @foreach ($categorias as $categoria)
+              <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+          @endforeach
+        </select>
+    </div>
+  
 <div class="mb-3">
     <label for="" class="form-label">Imagen:</label>
     <br>
