@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Categoria;
 use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
@@ -16,14 +17,13 @@ class ProductoController extends Controller
     public function index(Request $request)
     {
         if($request){
-            $query = trim($request -> get('search'));
-            $productos = Producto::where('nombre', 'LIKE', '%' . $query . '%')
-            ->orderBy('id', 'asc')
+            $consulta = trim($request->get('buscador'));
+            $productos = Producto::where('nombre','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
             ->get();
-            return view('supervisor.producto.index', ['productos' =>$productos, 'search' => $query]);
+
+        return view("supervisor.producto.index",compact("consulta","productos"));
         }
-        //$productos = Producto::all();
-        //return view("supervisor.producto.index",compact("productos"));
     }
 
     /**
@@ -33,7 +33,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view("supervisor.producto.create");
+        $categorias = Categoria::all();
+        return view("supervisor.producto.create",compact('categorias'));
     }
 
     /**
@@ -75,8 +76,9 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
+        $categorias = Categoria::all();
         $producto = Producto::find($id);
-        return view ("supervisor.producto.edit",compact('producto'));
+        return view ("supervisor.producto.edit",compact('producto','categorias'));
     }
 
     /**

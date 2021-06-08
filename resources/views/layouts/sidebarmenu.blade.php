@@ -51,10 +51,16 @@
                     Inicio
                   </a>
                 </li>
+                <li class="nav-item" >
+                  <a class="nav-link" href="/usuario">
+                    <span data-feather="users"></span>
+                    Usuarios
+                  </a>
+                </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="help-circle"></span>
-                    Preguntas
+                  <a class="nav-link" href="/cte">
+                    <span data-feather="file"></span>
+                    Categoria
                   </a>
                 </li>
                 <li class="nav-item">
@@ -105,6 +111,12 @@
                   <a class="nav-link" href="/producto">
                     <span data-feather="box"></span>
                     Productos
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/comprar">
+                    <span data-feather="shopping-cart"></span>
+                    Comprar
                   </a>
                 </li>
                 <li class="nav-item">

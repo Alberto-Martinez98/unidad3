@@ -4,18 +4,11 @@
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <!--el boton-->
-        <form class="input-group">
-        <input class="form-control form-control-dark w-100" name= "search" type="search" placeholder="Buscar" aria-label="Search">
+
+        <form class="input-group"> 
+        <input class="form-control form-control-dark w-100" name="buscador" type="search" placeholder="Buscar" aria-label="Search">
         </form>
-        <!--
-        <div class="input-group-append">
-        <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
-        </div>
-        </form>-->
-
-
+       
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
             <form action="/salir" method="post">

@@ -2,12 +2,11 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
-@if($search)
-<div class="alert alert-primary" role="alert">
-  Los resultados para tu busqueda '{{$search}}' son: 
-</div>
-</h6>
-@endif
+                @if($consulta)
+                <div class="alert alert-success" role="alert">
+                  Los resultados para tu busqueda '{{$consulta}}' son: 
+                </div>
+                @endif
 
 		<a href="producto/create" class="btn btn-primary mb-3">CREAR</a>
 
@@ -17,6 +16,7 @@
             <th scope="col">Clave</th>
             <th scope="col">Nombre del Producto</th>
             <th scope="col">Descripcion</th>
+            <th scope="col">Categoria</th>
             <th scope="col">Imagen</th>
             <th scope="col">Precio</th>
             <th scope="col">Acciones</th>
@@ -28,6 +28,7 @@
             <td>100{{$producto->id}}</td>
             <td>{{$producto->nombre}}</td>
             <td>{{$producto->descripcion}}</td>
+             <td>{{$producto->categoria_id}}</td>
             <td>
               <img src="{{asset('storage').'/'.$producto->imagen}}" width="150">
             </td>

@@ -112,11 +112,10 @@ body.sticky-header header h1{
 }
 	</style> 
 </head>
-
 <body>
 	<header>
 		<div >
-			<a href="/"><img src="imagenes/logo.jpg" width="80" height="60" text align="left" ></a>
+			<a href="/"><img src="{{url('/imagenes/logo.jpg')}}" width="80" height="60" text align="left"></a>
 			<h1>"Mercado Alpha"</h1>  
 		</div>	
 		<nav>
@@ -126,40 +125,41 @@ body.sticky-header header h1{
 			<a href="/login">Mi cuenta</a>
 		</nav>
 	</header>
-	<img src="imagenes/encabezado2.jpg " height="400">
+	<img src="{{url('/imagenes/encabezado2.jpg')}}"height="400">
 
 	<div class="wrapper" >
 			<section>
-				<form style="text-align: right; "> 
-        <input class="form" name="buscador" type="search" placeholder="BUSCAR CATEGORIA" aria-label="Search">
-        <h6>
-		@if($consulta)
-		<div class="alert alert-primary" role="alert">
-		  Los resultados para tu busqueda '{{$consulta}}' son: 
-		</div>
-		@endif
-		</h6>
-        </form>
-				<h2>Categorias del Mercado Alpha</h2>
+						<form style="text-align: right; "> 
+				        <input class="form" name="buscador" type="search" placeholder="BUSCAR CATEGORIA" aria-label="Search">
+				        <h6>
+						@if($consulta)
+						<div class="alert alert-primary" role="alert">
+						  Los resultados para tu busqueda '{{$consulta}}' son: 
+						</div>
+						@endif
+						</h6>
+				        </form>
+				<h2>Productos de la Categoria "{{$nombre}}"</h2>
 				<p>Alpha es en donde los precios de los bienes y servicios se determinan por la interacción de los oferentes y demandantes sin la intervención del gobierno o cualquier otro agente externo.</p>
-
-				@foreach ($categorias as $categoria)
+				@foreach ($productos as $producto)
 					<div >
 						<div class="card" style="width: 18rem; height: 20rem; float: left;" >
-						  <img src="{{asset('storage').'/'.$categoria->imagen}}" class="card-img-top" alt="..." width="200">
+						  <img src="{{asset('storage').'/'.$producto->imagen}}" class="card-img-top" alt="..." width="200">
 						  <div class="card-body" style="width: 13rem;">
-						    <h5 class="card-title">{{$categoria->nombre}}</h5>
-						    <p class="card-text">{{$categoria->descripcion}}</p>
-						    <a href="/bcategoria/{{$categoria->id}}" class="btn btn-primary">Ver Productos</a>
+						    <h5 class="card-title">{{$producto->nombre}}</h5>
+						    <p class="card-text">{{$producto->descripcion}}</p>
+						    <p>Precio: {{$producto->precio}}</p> 
+						    <a href="#" class="btn btn-primary">Ver mas</a>
 						  </div>
 						</div>
 					</div>
 				@endforeach
+
+				
 			</section>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="script.js"></script>
-
 </body>
 </html>
 
