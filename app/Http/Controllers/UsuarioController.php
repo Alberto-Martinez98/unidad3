@@ -33,6 +33,16 @@ class UsuarioController extends Controller
             return view("supervisor.usuarios.index",compact("consulta","usuarios"));
             }
         }
+        else{
+            if($request){
+            $consulta = trim($request->get('buscador'));
+            $usuarios = User::where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->get();
+
+            return view("supervisor.usuarios.index",compact("consulta","usuarios"));
+        }
+        }
 
         /*if($request){
             $consulta = trim($request->get('buscador'));

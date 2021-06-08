@@ -64,6 +64,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="/revisar">
+                    <span data-feather="eye"></span>
+                    Revisar Producto
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="/perfil">
                     <span data-feather="user"></span>
                     Perfil
