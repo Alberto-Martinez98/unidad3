@@ -15,10 +15,16 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::all();
-        return view("supervisor.usuarios.index",compact("usuarios"));
+        if($request){
+            $consulta = trim($request->get('buscador'));
+            $usuarios = User::where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->get();
+
+        return view("supervisor.usuarios.index",compact("consulta","usuarios"));
+        }
     }
 
     /**
@@ -164,5 +170,17 @@ class UsuarioController extends Controller
         }else   
             return redirect()->back()->with('error','contraseña incorrecta');
         
+    }
+    public function restablecerPassword(Request $request, $id)
+    {
+         $usuarios = request();
+         if($usuarios['password']!=$usuarios['password2']){
+            return redirect()->back()->with('error','La contraseña no esta bien confirmado');
+        }
+        $usuarios = request()->except('_token','password2','_method');
+        $usuarios['password'] = Hash::make($usuarios['password']);
+
+         User::where('id','=',$id)->update($usuarios);
+        return redirect('/perfil');
     }
 }
