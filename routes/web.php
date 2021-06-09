@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 //comentario de prubea
 
 
-    return view('principal');
-});
 
 
 Route::get('/login', function () {
@@ -54,3 +52,18 @@ Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('revisar',"RevisarController")->middleware('auth');
 Route::resource('registro',"RegistroController");
+
+
+
+
+
+
+//ARCOS
+
+
+Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
+Route::get('detalles/{id}','CategoriaController@detalles');
+
+Route::get('/compra', function () {
+    return view('detalles.compra');
+})->middleware('auth');

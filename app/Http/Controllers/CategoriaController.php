@@ -138,6 +138,8 @@ class CategoriaController extends Controller
             return view('buscar.bproducto',compact('nombre','productos','consulta'));
         }
     }
+
+    //arcos
     public function detalles(Request $request, $id){
         $producto = Producto::find($id);
         if ($request) {
