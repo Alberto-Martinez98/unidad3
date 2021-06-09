@@ -91,6 +91,21 @@
                     Perfil
                   </a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="c"></span>
+                    Validar Pagos
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="list"></span>
+                    Listar Pagos
+                  </a>
+                </li>
+
               </ul>        
             </div>
           </nav>
