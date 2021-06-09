@@ -24,6 +24,13 @@ class CreateProductosTable extends Migration
                     ->references('id')
                     ->on('categorias')
                     ->onDelete('set null');
+            $table -> unsignedBigInteger('user_id')->nullable();
+            $table -> foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('set null');
+            $table->tinyInteger('aceptado')->nullable();
+            $table->string('motivo');
         });
     }
 

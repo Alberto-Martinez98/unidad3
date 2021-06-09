@@ -17,14 +17,41 @@ class UsuarioController extends Controller
      */
     public function index(Request $request)
     {
-        if($request){
+        if(Auth::user()->rol == "Encargado"){
+            if($request){
+            $consulta = trim($request->get('buscador'));
+            $usuarios = User::orwhere("rol","=","Cliente")
+            ->where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->orwhere("rol","=","Encargado")
+            ->where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->orwhere("rol","=","Contador")
+            ->where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')        
+            ->get();
+            return view("supervisor.usuarios.index",compact("consulta","usuarios"));
+            }
+        }
+        else{
+            if($request){
+            $consulta = trim($request->get('buscador'));
+            $usuarios = User::where('name','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->get();
+
+            return view("supervisor.usuarios.index",compact("consulta","usuarios"));
+        }
+        }
+
+        /*if($request){
             $consulta = trim($request->get('buscador'));
             $usuarios = User::where('name','LIKE','%'.$consulta.'%')
             ->orderBy('id','asc')
             ->get();
 
         return view("supervisor.usuarios.index",compact("consulta","usuarios"));
-        }
+        }*/
     }
 
     /**
