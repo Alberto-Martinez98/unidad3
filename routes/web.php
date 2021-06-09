@@ -14,21 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/prueba', function () {
-
-	$user=Auth::user();
-	if($user->esSupervisor()){
-		echo "eres supervisor";
-	}else
-	{
-		echo "eres otro";
-	}
-
-
-
-
-    return view('principal');
-});
+//comentario de prubea
 
 
 Route::get('/login', function () {
@@ -64,3 +50,16 @@ Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('revisar',"RevisarController")->middleware('auth');
 Route::resource('registro',"RegistroController");
+
+
+
+Route::resource('encargado',"EncargadoController");
+
+
+
+
+Route::resource('prueba3',"RegistroController");
+Route::resource('pueba de ruta  5',"RegistroController");
+Route::resource('prueba4',"RegistroController");
+
+
