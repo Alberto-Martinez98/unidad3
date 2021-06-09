@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -16,14 +17,53 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
+        switch (Auth::user()->rol) {
+            case 'Cliente':
+                $cliente = Auth::user()->id;
+                if($request){
+                    $consulta = trim($request->get('buscador'));
+                    $productos = Producto::where('nombre','LIKE','%'.$consulta.'%')
+                    ->where('user_id','=',$cliente)
+                    ->orderBy('id','asc')
+                    ->get();
+
+                    return view("supervisor.producto.index",compact("consulta","productos"));
+                }
+                break;
+            
+            default:
+                if($request){
+                 $consulta = trim($request->get('buscador'));
+                $productos = Producto::where('nombre','LIKE','%'.$consulta.'%')
+                ->orderBy('id','asc')
+                ->get();
+
+                 return view("supervisor.producto.index",compact("consulta","productos"));
+            }
+                break;
+        }
+
+      /*  if(Auth::user()->rol == "Cliente")
+        $cliente = Auth::user()->id;
         if($request){
             $consulta = trim($request->get('buscador'));
             $productos = Producto::where('nombre','LIKE','%'.$consulta.'%')
+            ->where('user_id','=',$cliente)
             ->orderBy('id','asc')
             ->get();
 
         return view("supervisor.producto.index",compact("consulta","productos"));
         }
+        else{
+            if($request){
+                 $consulta = trim($request->get('buscador'));
+                $productos = Producto::where('nombre','LIKE','%'.$consulta.'%')
+                ->orderBy('id','asc')
+                ->get();
+
+                 return view("supervisor.producto.index",compact("consulta","productos"));
+            }
+        }*/
     }
 
     /**
@@ -49,7 +89,8 @@ class ProductoController extends Controller
         if ($request -> hasFile('imagen')) {
             $productos['imagen']=$request->file('imagen')->store('uploads','public');
         }
-
+        $productos['user_id']=Auth::user()->id;
+        $productos['aceptado']=0;
         Producto::insert($productos);
       //  return response()->json($usuarios);
         return redirect('/producto');

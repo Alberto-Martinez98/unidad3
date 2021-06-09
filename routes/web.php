@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 //comentario de prubea
 
 
+    return view('principal');
+});
+
+
 Route::get('/login', function () {
     return view('login');
 })->name('login')->middleware('guest');
@@ -50,44 +54,3 @@ Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('revisar',"RevisarController")->middleware('auth');
 Route::resource('registro',"RegistroController");
-
-
-
-Route::resource('encargado',"EncargadoController");
-
-
-
-
-Route::resource('prueba3',"RegistroController");
-Route::resource('pueba de ruta  5',"RegistroController");
-Route::resource('prueba4',"RegistroController");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
-Route::get('detalles/{id}','CategoriaController@detalles');
-
-Route::get('/compra', function () {
-    return view('detalles.compra');
-})->middleware('auth');
-
-
-

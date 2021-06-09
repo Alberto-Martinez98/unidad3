@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriaController extends Controller
 {
@@ -124,10 +125,13 @@ class CategoriaController extends Controller
     }
     public function ver(Request $request, $id){
         $categoria = Categoria::find($id);
+        $autenticado = Auth::user()->id;
         if($request){
             $consulta = trim($request->get('buscador'));
-            $productos = Producto::where('categoria_id','=',$id)
+            $productos = Producto::where('categoria_id','=',[[$id]])
             ->where('nombre','LIKE','%'.$consulta.'%')
+            ->where('aceptado','=',1)
+            ->where('user_id','!=',$autenticado)
             ->orderBy('id','asc')
             ->get();
             $nombre = $categoria->nombre;

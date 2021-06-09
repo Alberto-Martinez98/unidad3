@@ -18,6 +18,7 @@ class RevisarController extends Controller
         if($request){
             $consulta = trim($request->get('buscador'));
             $productos = Producto::where('nombre','LIKE','%'.$consulta.'%')
+            ->where('aceptado','!=',1)
             ->orderBy('id','asc')
             ->get();
 
