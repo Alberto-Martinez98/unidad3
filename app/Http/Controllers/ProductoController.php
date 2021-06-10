@@ -73,6 +73,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
+        $this->authorize('create');
         $categorias = Categoria::all();
         return view("supervisor.producto.create",compact('categorias'));
     }

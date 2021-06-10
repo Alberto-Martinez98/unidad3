@@ -15,4 +15,12 @@ class Producto extends Model
     public function categorias(){
     	return $this->belongsTo('App\Models\Categoria');
     }
+
+    public function preguntas(){
+        return $this->hasMany('App\Models\Pregunta');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');        
+    }
 }

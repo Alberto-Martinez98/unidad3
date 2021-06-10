@@ -51,6 +51,9 @@ Route::put('/updatepassword/{id}/',"UsuarioController@restablecerPassword")->mid
 Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('revisar',"RevisarController")->middleware('auth');
+Route::resource('preguntar',"PreguntaController")->middleware('auth');
+Route::get('misproductos',"PreguntaController@index2")->middleware('auth');
+Route::put('responder/{id}',"PreguntaController@respuesta")->middleware('auth');
 Route::resource('registro',"RegistroController");
 
 
@@ -62,8 +65,9 @@ Route::resource('registro',"RegistroController");
 
 
 Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
-Route::get('detalles/{id}','CategoriaController@detalles');
+Route::get('detalles/{id}','PreguntaController@detalles')->middleware('auth');
+Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth');
 
-Route::get('/compra', function () {
-    return view('detalles.compra');
-})->middleware('auth');
+Route::get('compra','ComprarController@index');
+
+
