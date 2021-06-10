@@ -63,3 +63,31 @@ Route::resource('pueba de ruta  5',"RegistroController");
 Route::resource('prueba4',"RegistroController");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
+Route::get('detalles/{id}','CategoriaController@detalles');
+
+Route::get('/compra', function () {
+    return view('detalles.compra');
+})->middleware('auth');
+
+
+

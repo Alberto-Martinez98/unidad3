@@ -10,7 +10,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">CARNET DE IDENTIFICACION</h6>
             </div>
             <!-- DATOS DEL USUARIO --> 
-            <form action="/usuario" method="GET">    
+   <form action="/usuario" method="GET">    
    @csrf
    <h5><small class="text-muted">NOMBRE DEL USUARIO:</small> "{{$usuario->name}}"</h5>
    <br>

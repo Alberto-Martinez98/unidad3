@@ -134,4 +134,17 @@ class CategoriaController extends Controller
             return view('buscar.bproducto',compact('nombre','productos','consulta'));
         }
     }
+    public function detalles(Request $request, $id){
+        $producto = Producto::find($id);
+        if ($request) {
+            $consulta = trim($request->get('buscador'));
+            $productos = Producto::where('id','=',$id)
+            ->where('nombre','LIKE','%'.$consulta.'%')
+            ->orderBy('id','asc')
+            ->get();
+            $nombre = "prueva";
+            return view('detalles.detallesP',compact('nombre','productos','consulta'));
+        }
+
+    }
 }

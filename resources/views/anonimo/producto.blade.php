@@ -38,7 +38,7 @@ header{
 	transition: all 0.3s ease;
 }
  h1{
-	font.font-weight: bold;
+	font-weight: bold;
 	text-transform: uppercase;
 	background-color: black;
 }
