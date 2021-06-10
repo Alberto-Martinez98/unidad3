@@ -14,6 +14,7 @@ class BuscarController extends Controller
             $consulta = trim($request->get('buscador'));
             $productos = Producto::where('categoria_id','=',$id)
             ->where('nombre','LIKE','%'.$consulta.'%')
+            ->where('aceptado','=',1)
             ->orderBy('id','asc')
             ->get();
             $nombre = $categoria->nombre;

@@ -48,6 +48,7 @@ Route::put('/password/{id}/',"UsuarioController@password")->middleware('auth');/
 Route::put('/updatepassword/{id}/',"UsuarioController@restablecerPassword")->middleware('auth');
 Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
+Route::resource('revisar',"RevisarController")->middleware('auth');
 Route::resource('registro',"RegistroController");
 
 
