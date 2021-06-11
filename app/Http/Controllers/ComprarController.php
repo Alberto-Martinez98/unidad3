@@ -9,6 +9,9 @@ use App\Models\Compra;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use App\Mail\ContactanosMailabe;
+use Illuminate\Support\Facades\Mail;
+
 class ComprarController extends Controller
 {
     public function index($id)
@@ -49,6 +52,10 @@ class ComprarController extends Controller
        
         Compra::insert($productos);//7
         //return redirect('/pagos');
-        return redirect('/comprar')->with('success','Compra realizada con exito');
-    }   
+        $correo = new ContactanosMailabe;
+        Mail::to('hdecossmendez@gmail.com')->send($correo);
+
+
+        return redirect('/comprar')->with('error','Su compra fue realizada con exito....     Puedes seguir comprando');
+    }    
 }

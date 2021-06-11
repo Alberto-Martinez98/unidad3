@@ -2,6 +2,11 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
+                  @if(session('error'))
+                  <div class="alert alert-success" role="alert">
+                    {{session('error')}}
+                  </div>
+                  @endif
                 @foreach ($categorias as $categoria)
                     <div >
                         <div class="card" style="width: 18rem; height: 20rem; float: left;" >

@@ -71,4 +71,3 @@ Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth'
 Route::get('compra/{id}','ComprarController@index');
 Route::post('compra/{id}','ComprarController@guardarcompra');
 
-
