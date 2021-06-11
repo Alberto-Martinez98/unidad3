@@ -104,6 +104,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
+
         $producto = Producto::find($id);
         return view ("supervisor.producto.show",compact('producto'));
 
@@ -119,6 +120,7 @@ class ProductoController extends Controller
     {
         $categorias = Categoria::all();
         $producto = Producto::find($id);
+        $this->authorize('edit',$producto);
         return view ("supervisor.producto.edit",compact('producto','categorias'));
     }
 
@@ -152,6 +154,7 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto = producto::findOrFail($id);
+         $this->authorize('destroy',$producto);
         Storage::delete('public/'.$producto->imagen);
         producto::destroy($id);
         return redirect('/producto');

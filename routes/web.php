@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 //comentario de prubea
 
 
-    return view('principal');
-});
 
 
 Route::get('/login', function () {
@@ -53,4 +51,24 @@ Route::put('/updatepassword/{id}/',"UsuarioController@restablecerPassword")->mid
 Route::resource('categoria',"CategoriaController")->middleware('auth');
 Route::resource('producto',"ProductoController")->middleware('auth');
 Route::resource('revisar',"RevisarController")->middleware('auth');
+Route::resource('preguntar',"PreguntaController")->middleware('auth');
+Route::get('misproductos',"PreguntaController@index2")->middleware('auth');
+Route::put('responder/{id}',"PreguntaController@respuesta")->middleware('auth');
 Route::resource('registro',"RegistroController");
+
+
+
+
+
+
+//ARCOS
+
+
+Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
+Route::get('detalles/{id}','PreguntaController@detalles')->middleware('auth');
+Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth');
+
+Route::get('compra/{id}','ComprarController@index');
+Route::post('compra/{id}','ComprarController@guardarcompra');
+
+

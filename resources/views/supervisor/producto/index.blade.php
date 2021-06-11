@@ -7,8 +7,10 @@
                   Los resultados para tu busqueda '{{$consulta}}' son: 
                 </div>
                 @endif
-
+        @if(Auth::user()->rol == "Cliente")
 		<a href="producto/create" class="btn btn-primary mb-3">CREAR</a>
+        @endif
+
 
 <table id="articulos" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
     <thead class="bg-primary text-white">
