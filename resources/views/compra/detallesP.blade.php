@@ -14,8 +14,8 @@
     <p class="card-text">Precio: "{{$producto->precio}}"</p>
     <p class="card-text">Vendedor: " " </p>
     <p class="card-text">Categoria: " " </p>
-
-    <a href="#" class="btn btn-primary">comprar ahora</a>
+    
+    <a href="/compra/{{$producto->id}}" class="btn btn-primary">comprar ahora</a>
    
   </div>
   </div><br>

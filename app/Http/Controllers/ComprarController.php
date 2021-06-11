@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Producto;
+use App\Models\Compra;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ComprarController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        return view('compra.compra');
+        $producto = Producto::find($id);
+        return view('compra.compra',compact('producto'));
     }
 
     public function inicioEncargado(Request $request){
@@ -35,4 +38,17 @@ class ComprarController extends Controller
             return view('buscar.bproducto',compact('nombre','productos','consulta'));
         }
     }	
+    public function guardarcompra(Request $request, $id){
+        $productos = request()->except('_token','credito');
+        if ($request -> hasFile('imagen')) {
+            $productos['imagen']=$request->file('imagen')->store('uploads','public');
+        }
+        $productos['user_id']=Auth::user()->id;
+        $productos['producto_id'] = $id;
+        $productos['comprado'] = 1;
+       
+        Compra::insert($productos);//7
+        //return redirect('/pagos');
+        return redirect('/comprar')->with('success','Compra realizada con exito');
+    }   
 }

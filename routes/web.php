@@ -68,6 +68,7 @@ Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth'
 Route::get('detalles/{id}','PreguntaController@detalles')->middleware('auth');
 Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth');
 
-Route::get('compra','ComprarController@index');
+Route::get('compra/{id}','ComprarController@index');
+Route::post('compra/{id}','ComprarController@guardarcompra');
 
 
