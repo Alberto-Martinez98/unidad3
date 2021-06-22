@@ -71,3 +71,15 @@ Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth'
 Route::get('compra/{id}','ComprarController@index');
 Route::post('compra/{id}','ComprarController@guardarcompra');
 
+
+
+
+
+
+
+
+//ruta de prueba de valida correo existente en ajax
+
+//Route::get('/email_available', 'UsuarioController@index')->middleware('auth');;
+//Route::resource('usuario',"UsuarioController@check'")->name('email_available.check');
+Route::post('usuario/check', 'UsuarioController@check')->name('email_available.check')->middleware('auth');

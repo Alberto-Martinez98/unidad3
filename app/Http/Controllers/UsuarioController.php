@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class UsuarioController extends Controller
 {
@@ -210,4 +211,29 @@ class UsuarioController extends Controller
          User::where('id','=',$id)->update($usuarios);
         return redirect('/perfil');
     }
+    function check(Request $request)
+    {
+     if($request->get('email'))
+     {
+      $email = $request->get('email');
+      $data = DB::table("users")
+       ->where('email', $email)
+       ->count();
+      if($data > 0)
+      {
+       echo 'not_unique';
+      }
+      else
+      {
+       echo 'unique';
+      }
+     }
+    }
+
+
+
+
+
+
+
 }
