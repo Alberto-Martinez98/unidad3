@@ -42,7 +42,7 @@ class ComprarController extends Controller
         }
     }	
     public function guardarcompra(Request $request, $id){
-        $productos = request()->except('_token','credito');
+        $productos = request()->except('_token');
         if ($request -> hasFile('imagen')) {
             $productos['imagen']=$request->file('imagen')->store('uploads','public');
         }

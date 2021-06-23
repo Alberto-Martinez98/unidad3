@@ -57,13 +57,6 @@ Route::put('responder/{id}',"PreguntaController@respuesta")->middleware('auth');
 Route::resource('registro',"RegistroController");
 
 
-
-
-
-
-//ARCOS
-
-
 Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
 Route::get('detalles/{id}','PreguntaController@detalles')->middleware('auth');
 Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth');

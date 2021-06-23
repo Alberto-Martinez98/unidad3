@@ -46,7 +46,7 @@
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="/encargado">
+                  <a class="nav-link" aria-current="page" href="/dashboard">
                     <span data-feather="home"></span>
                     Inicio
                   </a>
@@ -131,19 +131,19 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/producto">
                     <span data-feather="box"></span>
-                    Productos
+                    Todos Mis   Productos
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/comprar">
                     <span data-feather="shopping-cart"></span>
-                    Comprar
+                    Comprar Productos
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/misproductos">
                     <span data-feather="help-circle"></span>
-                    Preguntas
+                    Preguntas de mi Producto
                   </a>
                 </li>
                  <li class="nav-item">

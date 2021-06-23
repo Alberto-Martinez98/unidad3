@@ -1,6 +1,11 @@
 @extends("layouts.plantilla")
 
 @section("contenido")
+@if($producto->motivo)
+                <div class="alert alert-danger" role="alert">
+                    Motivo por el cual fue rechazado: "{{$producto->motivo}}"
+                </div>
+@endif
 
 <form action="/producto/{{$producto->id}}" method="post" enctype="multipart/form-data">    
    @csrf

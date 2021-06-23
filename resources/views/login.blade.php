@@ -122,14 +122,14 @@ color: white;
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="email" class="form-control" placeholder="correo">
+						<input type="email" name="email" class="form-control" placeholder="correo" required>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="password" class="form-control" placeholder="contraseña">
+						<input type="password" name="password" class="form-control" placeholder="contraseña" required>
 					</div>
 					@if(session('error'))
 					<div style="color:white;">

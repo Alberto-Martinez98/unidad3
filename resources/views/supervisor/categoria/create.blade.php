@@ -6,15 +6,15 @@
   @csrf
   <div class="mb-3">
     <label for="" class="form-label">Nombre de Categoria: </label>
-    <input id="codigo" name="nombre" type="text" class="form-control" tabindex="1">    
+    <input id="codigo" name="nombre" type="text" class="form-control" tabindex="1" required>    
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Descripcion: </label>
-    <input id="codigo" name="descripcion" type="text" class="form-control" tabindex="1">    
+    <input id="codigo" name="descripcion" type="text" class="form-control" tabindex="1" required>    
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Imagen: </label>
-    <input id="codigo" name="imagen" type="file" class="form-control" tabindex="1">    
+    <input id="codigo" name="imagen" type="file" class="form-control" tabindex="1" required>    
   </div>
   <div class="mb-3">
       <label for="activo">Activo</label>

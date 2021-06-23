@@ -6,15 +6,19 @@
   @csrf
   <div class="mb-3">
     <label for="" class="form-label">Nombre de producto: </label>
-    <input id="codigo" name="nombre" type="text" class="form-control" tabindex="1">    
+    <input id="codigo" name="nombre" type="text" class="form-control" tabindex="1" required>    
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Descripcion: </label>
-    <input id="codigo" name="descripcion" type="text" class="form-control" tabindex="1">    
+    <input id="codigo" name="descripcion" type="text" class="form-control" tabindex="1" required>    
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">Precio: </label>
-    <input id="codigo" name="precio" type="text" class="form-control" tabindex="1">    
+    <label for="" class="form-label">Precio Unitario: </label>
+    <input id="codigo" name="precio" type="number" class="form-control" tabindex="1" required>    
+  </div>
+    <div class="mb-3">
+    <label for="" class="form-label">Cantidad de producto disponible: </label>
+    <input id="codigo" name="cantidad" type="number" class="form-control" tabindex="1" required>
   </div>
   <div class="form-group">
       <label>Categoria:</label>
@@ -27,7 +31,7 @@
   <br>
   <div class="mb-3">
     <label for="" class="form-label">Imagen: </label>
-    <input id="codigo" name="imagen" type="file" class="form-control" tabindex="1">    
+    <input id="codigo" name="imagen" type="file" class="form-control" tabindex="1" required>    
   </div>  
 
   <br>

@@ -37,9 +37,11 @@ class RegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)     //
     {
+        //return response()->json($request->all(), 200);
         $usuarios = request()->except('_token');
+
         if($usuarios['password']!=$usuarios['password2']){
             return redirect()->back()->with('error','La contraseña no esta bien confirmado');
         }

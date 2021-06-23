@@ -18,27 +18,15 @@
   </div>
   </div><br>
   <hr style="color: #0056b2;" />
-  <h5 class="card-title">Preguntas y Respuestas</h5><br>
-
-<form action="/preguntar/{{$producto->id}}" method="post" enctype="multipart/form-data">
-  @csrf
-   @method('put')
-<div class="input-group mb-3">
-  <input type="text" name="pregunta" class="form-control" placeholder="Escribe tu pregunta..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-  <button type="submit" class="btn btn-primary" tabindex="4">Preguntar</button>
-  </div>
-</div>
-</div>
-</form>
-
+  <h5 class="card-title">RESPONDER PREGUNTAS</h5>
   @endforeach
-
+  <br>
+  <tt><h6 class="card-title" style="background-color: yellow;">TODAS LAS PREGUNTAS QUE SE HA REALIZADO A ESTE PRODUCTO</h6></tt>
   @foreach($preguntas as $pregunta)
           <hr>
           <div>
-            <h6>{{$pregunta->pregunta}}:</h6>
-            {{$pregunta->respuestas}}
+            <h6>PREGUNTA: {{$pregunta->pregunta}}:</h6>
+            Respuesta: {{$pregunta->respuestas}}
             <br>
           </div>
 
@@ -51,10 +39,10 @@
           <button type="submit" class="btn btn-success" tabindex="4">Responder</button>
           </div>
         </div>
+        <br>
+        <br>
         </form>
-
   @endforeach
-  <br> 
   
 @endsection
 

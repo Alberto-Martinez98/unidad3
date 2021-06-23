@@ -18,6 +18,7 @@ class CreateProductosTable extends Migration
             $table -> String('nombre',50);
             $table -> String('descripcion',400);
             $table -> Float('precio');
+            $table -> Integer('cantidad');
             $table -> String('imagen',400);
             $table -> unsignedBigInteger('categoria_id')->nullable();
             $table -> foreign('categoria_id')
@@ -30,7 +31,7 @@ class CreateProductosTable extends Migration
                     ->on('users')
                     ->onDelete('set null');
             $table->tinyInteger('aceptado')->nullable();
-            $table->string('motivo');
+            $table->string('motivo')->nullable();
         });
     }
 
