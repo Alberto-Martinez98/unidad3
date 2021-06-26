@@ -99,16 +99,23 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="c"></span>
+                  <a class="nav-link" href="/pagos">
+                    <span data-feather="check-square"></span>
                     Validar Pagos
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/lista">
+                    <span data-feather="plus-circle"></span>
+                    Nuevo Pago
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/verpagos">
                     <span data-feather="list"></span>
-                    Listar Pagos
+                    Lista de Pagos
                   </a>
                 </li>
 
@@ -123,13 +130,13 @@
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">
+                  <a class="nav-link" aria-current="page" href="dashboard">
                     <span data-feather="home"></span>
                     Inicio
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/producto">
+                  <a class="nav-link" aria-current="page" href="/producto">
                     <span data-feather="box"></span>
                     Todos Mis   Productos
                   </a>

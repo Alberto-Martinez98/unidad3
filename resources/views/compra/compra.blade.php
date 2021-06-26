@@ -38,11 +38,6 @@
               Cantidad de producto es requerido.
             </div>
           </div>
-          <div class="col-md-3 mb-3">
-            <br>
-            <label>El total a pagar es: </label><br>
-            <b><tt>800 pesos mexicanos</tt></b> 
-          </div>
         </div>
       <hr class="mb-4">
        
@@ -56,7 +51,7 @@
     <input id="codigo" name="imagen" type="file" class="form-control" tabindex="1" required>    
   </div>
   <a href="#" class="btn btn-secondary" tabindex="5">Cancelar</a>
-  <button class="btn btn-primary btn-lg btn-block" type="submit">Pagar compra</button>
+  <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar Pago</button>
 </div>
 <br>
 </form>

@@ -42,18 +42,20 @@ class ComprarController extends Controller
         }
     }	
     public function guardarcompra(Request $request, $id){
+        $cantidad = Producto::find($id);
         $productos = request()->except('_token');
         if ($request -> hasFile('imagen')) {
             $productos['imagen']=$request->file('imagen')->store('uploads','public');
         }
         $productos['user_id']=Auth::user()->id;
         $productos['producto_id'] = $id;
-        $productos['comprado'] = 1;
-       
+        $productos['comprado'] = 2;
+        $productos['monto'] = ($cantidad['precio'])*($productos['cantidad']);
+
         Compra::insert($productos);//7
         //return redirect('/pagos');
         $correo = new ContactanosMailabe;
-        Mail::to('hdecossmendez@gmail.com')->send($correo);
+        Mail::to(Auth::user()->email)->send($correo);
 
 
         return redirect('/comprar')->with('error','Su compra fue realizada con exito....     Puedes seguir comprando');

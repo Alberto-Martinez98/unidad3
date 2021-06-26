@@ -8,7 +8,7 @@
                 </div>
                 @endif
         @if(Auth::user()->rol == "Cliente")
-		<a href="producto/create" class="btn btn-primary mb-3">CREAR</a>
+		<a href="producto/create" class="btn btn-primary mb-3">PROPONER</a>
         @endif
 
 

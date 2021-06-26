@@ -73,6 +73,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $categorias = Categoria::all();
         return view("supervisor.producto.create",compact('categorias'));
     }

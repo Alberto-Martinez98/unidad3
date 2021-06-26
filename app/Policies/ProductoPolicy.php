@@ -21,9 +21,14 @@ class ProductoPolicy
         //
     }
 
-    public function create(User $usuario)
+    public function create(User $usuario Producto $prod)
     {   
-        return $usuario->rol == "Cliente";
+        if ($usuario->rol == "Cliente") {
+            return true;;
+        }
+        else{
+            return false;
+        }
     }
 
     public function edit(User $usuario, Producto $prod)
