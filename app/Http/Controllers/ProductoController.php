@@ -73,6 +73,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $categorias = Categoria::all();
         return view("supervisor.producto.create",compact('categorias'));
     }
@@ -90,7 +91,7 @@ class ProductoController extends Controller
             $productos['imagen']=$request->file('imagen')->store('uploads','public');
         }
         $productos['user_id']=Auth::user()->id;
-        $productos['aceptado']=0;
+        $productos['aceptado']=2;
         Producto::insert($productos);
       //  return response()->json($usuarios);
         return redirect('/producto');
@@ -141,6 +142,8 @@ class ProductoController extends Controller
             Storage::delete('public/'.$producto->imagen);
             $productos['imagen']=$request->file('imagen')->store('uploads','public');
         }
+        $productos['aceptado']=2;
+        $productos['motivo']= null;
         producto::where('id','=',$id)->update($productos);
         return redirect('/producto');
     }

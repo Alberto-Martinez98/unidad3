@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Compra extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
+    public function productos(){
+    	return $this->belongsTo('App\Models\Producto');
+    } 
 }

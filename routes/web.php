@@ -55,13 +55,7 @@ Route::resource('preguntar',"PreguntaController")->middleware('auth');
 Route::get('misproductos',"PreguntaController@index2")->middleware('auth');
 Route::put('responder/{id}',"PreguntaController@respuesta")->middleware('auth');
 Route::resource('registro',"RegistroController");
-
-
-
-
-
-
-//ARCOS
+Route::post('verificarEmail',"RegistroController@verificarEmail");
 
 
 Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth');
@@ -71,3 +65,14 @@ Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth'
 Route::get('compra/{id}','ComprarController@index');
 Route::post('compra/{id}','ComprarController@guardarcompra');
 
+
+Route::get('pagos','PagosController@index');
+Route::get('pagos/{id}','PagosController@show');
+Route::put('validar/{id}','PagosController@validar');
+
+Route::get('lista','PagosController@indexLista');
+Route::post('lista','PagosController@validarLista');
+
+Route::get('verpagos','PagosController@indexListaPagos');
+Route::get('verpagos/{id}','PagosController@show');
+Route::put('vervalidar/{id}','PagosController@validar');

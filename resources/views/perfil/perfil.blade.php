@@ -92,11 +92,11 @@
          <div style="text-align: center;">CAMBIAR CONTRASEÑA</div>
       <div class="mb-3">
           <label for="" class="form-label">Contraseña Actual:</label>
-          <input id="codigo" name="passwordactual" type="password" class="form-control" tabindex="1">    
+          <input id="codigo" name="passwordactual" type="password" class="form-control" tabindex="1" required>    
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Nueva Contraseña: </label>
-          <input id="codigo" name="password" type="password" class="form-control" tabindex="1">
+          <input id="codigo" name="password" type="password" class="form-control" tabindex="1" required>
 
         @if(session('error'))
           <div style="color:red;">

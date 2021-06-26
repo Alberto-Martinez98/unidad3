@@ -16,9 +16,10 @@ class CreateComprasTable extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
             $table -> String('nombre',50);
-            $table -> String('numero',400);
-            $table -> String('vencimiento');
-            $table -> String('cvv');
+            $table -> String('direccion',400);
+            $table -> String('telefono');
+            $table -> Integer('cantidad');
+            $table -> Float('monto');
             $table -> String('imagen',400)->nullable();
             $table -> unsignedBigInteger('producto_id')->nullable();
             $table -> foreign('producto_id')
@@ -31,6 +32,7 @@ class CreateComprasTable extends Migration
                     ->on('users')
                     ->onDelete('set null');
             $table->tinyInteger('comprado')->nullable();
+            $table->string('motivo')->nullable();
             $table->timestamps();
         });
     }

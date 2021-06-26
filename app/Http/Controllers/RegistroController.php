@@ -37,9 +37,11 @@ class RegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)     //
     {
+        //return response()->json($request->all(), 200);
         $usuarios = request()->except('_token');
+
         if($usuarios['password']!=$usuarios['password2']){
             return redirect()->back()->with('error','La contraseña no esta bien confirmado');
         }
@@ -55,6 +57,23 @@ class RegistroController extends Controller
         User::insert($usuarios);
       //  return response()->json($usuarios);
         return redirect('/');
+    }
+
+    public function verificarEmail(Request $request){
+        if($request->get('email'))
+        {
+          $email = $request->get('email');
+          $data = User::where('email','LIKE', "%$email%")
+           ->count();
+          if($data > 0)
+          {
+           echo 'ya exite';
+            }
+            else
+          {
+           echo 'disponible';
+          }
+        }
     }
 
     /**

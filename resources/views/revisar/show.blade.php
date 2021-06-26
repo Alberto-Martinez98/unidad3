@@ -17,7 +17,7 @@
 		@method('PUT')
 		<div class="input-group">
 		  <span class="input-group-text">Motivo: </span>
-		  <textarea class="form-control" name="motivo" aria-label="With textarea"></textarea>
+		  <textarea class="form-control" name="motivo" aria-label="With textarea" required></textarea>
 		</div>
 	<br>
 	<button type="submit" class="btn btn-danger">Rechazar</button>
@@ -29,5 +29,5 @@
     @method('PUT')
     <button type="submit" class="btn btn-success">Aceptar</button>
   </form>
-<button type="submit" class="btn btn-secondary">Cancelar</button><br><br>
+<a href="/revisar" class="btn btn-secondary" tabindex="5">Cancelar</a>
 @endsection

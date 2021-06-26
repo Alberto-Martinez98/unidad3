@@ -8,7 +8,7 @@
                 </div>
                 @endif
         @if(Auth::user()->rol == "Cliente")
-		<a href="producto/create" class="btn btn-primary mb-3">CREAR</a>
+		<a href="producto/create" class="btn btn-primary mb-3">PROPONER</a>
         @endif
 
 
@@ -21,6 +21,8 @@
             <th scope="col">Categoria</th>
             <th scope="col">Imagen</th>
             <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Consignados</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -34,7 +36,20 @@
             <td>
               <img src="{{asset('storage').'/'.$producto->imagen}}" width="150">
             </td>
-            <td>{{$producto->precio}}</td>          
+            <td>{{$producto->precio}}</td>
+            <td>{{$producto->cantidad}}</td>
+            @if($producto->aceptado == 1)
+            <td>Aceptado</td>
+            @elseif($producto->aceptado == 2)
+            <td>No ha sido revisado</td>
+            @else
+            <td>Rechazado</td>
+            @endif
+
+
+
+
+                  
             <td>
                 <form action="/producto/{{$producto->id}}" method="POST">
                 <a href="producto/{{$producto->id}}/edit" class="btn btn-info">Editar</a>

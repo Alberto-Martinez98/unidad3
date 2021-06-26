@@ -56,7 +56,7 @@ class RevisarController extends Controller
     public function show($id)
     {
         $producto = Producto::find($id);
-        return view('Revisar.show',compact('producto'));
+        return view('revisar.show',compact('producto'));
     }
 
     /**
