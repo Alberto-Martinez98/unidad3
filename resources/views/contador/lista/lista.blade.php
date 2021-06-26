@@ -7,7 +7,7 @@
       <select onchange="mostrarUsuario(this.value)">
             <option  value="">Seleccione un cliente</option>
             @foreach ($clientes as $cliente)
-            <option  value="{{$cliente->id}}">{{$cliente->id}} {{$cliente->name}}</option>
+            <option  value="{{$cliente->id}}">{{$cliente->name}}</option>
             @endforeach
       </select>
   </div>  
@@ -38,7 +38,7 @@
     <label for="exampleFormControlTextarea1" class="form-label">Nota: </label>
     <input type="text" name="nota" class="form-control" id="exampleFormControlTextarea1"></input>
   </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  <button type="button" class="btn btn-primary">Enviar</button>
 </form>
 
 

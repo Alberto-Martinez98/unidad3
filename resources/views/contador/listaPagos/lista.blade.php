@@ -28,7 +28,7 @@
         <tr>
             <td>100{{$compra->id}}</td>
             <td>{{$compra->nombre}}</td>
-            <td>nota</td>
+            <td>{{$compra->nota}}</td>
             <td>{{$compra->monto}}</td>
             @if($compra->comprado == 2)
             <td>No ha sido revisado</td>
