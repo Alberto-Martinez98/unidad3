@@ -62,17 +62,17 @@ Route::get('/detalles',"CategoriaController@inicioEncargado")->middleware('auth'
 Route::get('detalles/{id}','PreguntaController@detalles')->middleware('auth');
 Route::get('pregunta/{id}','PreguntaController@misproductos')->middleware('auth');
 
-Route::get('compra/{id}','ComprarController@index');
-Route::post('compra/{id}','ComprarController@guardarcompra');
+Route::get('compra/{id}','ComprarController@index')->middleware('auth');
+Route::post('compra/{id}','ComprarController@guardarcompra')->middleware('auth');
 
 
-Route::get('pagos','PagosController@index');
-Route::get('pagos/{id}','PagosController@show');
-Route::put('validar/{id}','PagosController@validar');
+Route::get('pagos','PagosController@index')->middleware('auth');
+Route::get('pagos/{id}','PagosController@show')->middleware('auth');
+Route::put('validar/{id}','PagosController@validar')->middleware('auth');
 
-Route::get('lista','PagosController@indexLista');
-Route::post('lista','PagosController@validarLista');
+Route::get('lista','PagosController@indexLista')->middleware('auth');
+Route::post('lista','PagosController@validarLista')->middleware('auth');
 
-Route::get('verpagos','PagosController@indexListaPagos');
-Route::get('verpagos/{id}','PagosController@show');
-Route::put('vervalidar/{id}','PagosController@validar');
+Route::get('verpagos','PagosController@indexListaPagos')->middleware('auth');
+Route::get('verpagos/{id}','PagosController@show')->middleware('auth');
+Route::put('vervalidar/{id}','PagosController@validar')->middleware('auth');
