@@ -33,6 +33,7 @@ class CreateComprasTable extends Migration
                     ->onDelete('set null');
             $table->tinyInteger('comprado')->nullable();
             $table->string('motivo')->nullable();
+            $table->string('nota')->nullable();
             $table->timestamps();
         });
     }
